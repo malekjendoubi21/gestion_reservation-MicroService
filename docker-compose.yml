@@ -1,0 +1,40 @@
+version: "3.9"
+services:
+
+
+  Candidat:
+    container_name: gestionReservation
+    image: malekjendoubi/gestionreservation
+    build: .\gestionReservation
+    ports:
+      - "8082:8082"
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://serviceregistry:8761/eureka/
+    depends_on:
+      - Eureka
+
+
+
+
+  Eureka:
+    container_name: eureka
+    build: .\EurekaApplication
+    hostname: serviceregistry
+    ports:
+      - "8761:8761"
+    image: malekjendoubi/eureka
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://serviceregistry:8761/eureka/
+
+
+
+  api-gateway:
+    build: .\apigateway
+    image: malekjendoubi/apigateway
+    ports:
+      - "8093:8093"  # Port mapping pour l'API Gateway
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://serviceregistry:8761/eureka/
+    depends_on:
+      - "Eureka"
+      - "gestionReservation"
