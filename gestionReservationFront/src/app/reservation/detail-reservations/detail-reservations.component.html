@@ -1,0 +1,15 @@
+<div *ngIf="reservation" class="card">
+  <h3>Détails de la Réservation #{{ reservation.id }}</h3>
+  <p><strong>Date début :</strong> {{ reservation.datedebut | date: 'shortDate' }}</p>
+  <p><strong>Date fin :</strong> {{ reservation.datefin | date: 'shortDate' }}</p>
+  <p><strong>ID Chambre :</strong> {{ reservation.idchambre }}</p>
+  <p><strong>Statut :</strong> {{ reservation.statut ? 'Confirmée' : 'Annulée' }}</p>
+
+  <!-- Affichage du QR code -->
+  <div *ngIf="qrCodeUrl">
+    <h3>QR Code pour cette réservation :</h3>
+    <img *ngIf="qrCodeUrl" [src]="qrCodeUrl" alt="QR Code" />
+  </div>
+
+  <button (click)="goBack()">Retour</button>
+</div>

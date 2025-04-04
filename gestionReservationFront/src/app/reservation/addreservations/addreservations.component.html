@@ -1,0 +1,32 @@
+<div class="card">
+  <div class="card-body">
+    <h2>Ajouter une réservation</h2>
+
+    <form (ngSubmit)="saveReservation()">
+      <div class="form-group">
+        <label>Date Début :</label>
+        <input type="date" [(ngModel)]="reservation.datedebut" name="datedebut" required />
+      </div>
+
+      <div class="form-group">
+        <label>Date Fin :</label>
+        <input type="date" [(ngModel)]="reservation.datefin" name="datefin" required />
+      </div>
+
+      <div class="form-group">
+        <label>ID Chambre :</label>
+        <input type="number" [(ngModel)]="reservation.idchambre" name="idchambre" required />
+      </div>
+
+      <div class="form-group">
+        <label>Statut :</label>
+        <select [(ngModel)]="reservation.statut" name="statut">
+          <option [value]="true">Confirmée</option>
+          <option [value]="false">Annulée</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn-submit">Ajouter</button>
+    </form>
+  </div>
+</div>

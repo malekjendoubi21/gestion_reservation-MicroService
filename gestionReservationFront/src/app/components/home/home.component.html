@@ -1,0 +1,29 @@
+<div class="home-container">
+  <div class="card">
+    <div class="card-body">
+      <h1>Bienvenue sur la plateforme de gestion d'hôtel</h1>
+      <p>Gérez vos réservations facilement et efficacement.</p>
+
+      <div class="stats">
+        <div class="stat-card">
+          <h3>Total Réservations</h3>
+          <p>{{ totalReservations }}</p> <!-- Dynamique -->
+        </div>
+
+        <div class="stat-card">
+          <h3>Réservations Confirmées</h3>
+          <p>{{ confirmedReservations }}</p> <!-- Dynamique -->
+        </div>
+
+        <div class="stat-card">
+          <h3>Réservations Annulées</h3>
+          <p>{{ canceledReservations }}</p> <!-- Dynamique -->
+        </div>
+      </div>
+
+
+      <button routerLink="/addreservation" class="btn-ajout">Ajouter une Réservation</button>
+      <button routerLink="/listreservation" class="btn-liste">Voir les réservations</button>
+    </div>
+  </div>
+</div>

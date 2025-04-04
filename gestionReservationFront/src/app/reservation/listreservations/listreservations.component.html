@@ -1,0 +1,17 @@
+<div class="card-container">
+  <div class="card" *ngFor="let reservation of reservations">
+    <h3>Réservation #{{ reservation.id }}</h3>
+    <p><strong>Date début :</strong> {{ reservation.datedebut | date: 'shortDate' }}</p>
+    <p><strong>Date fin :</strong> {{ reservation.datefin | date: 'shortDate' }}</p>
+    <p><strong>ID Chambre :</strong> {{ reservation.idchambre }}</p>
+    <p>
+      <strong>Statut :</strong>
+      <span [ngClass]="{'status': true, 'annulee': !reservation.statut}">
+        {{ reservation.statut ? 'Confirmée' : 'Annulée' }}
+      </span>
+    </p>
+    <button (click)="deleteReservation(reservation.id!)">Supprimer</button>
+    <!-- Bouton de détail -->
+    <button [routerLink]="['/reservation-detail', reservation.id]">Détails</button>
+  </div>
+</div>
