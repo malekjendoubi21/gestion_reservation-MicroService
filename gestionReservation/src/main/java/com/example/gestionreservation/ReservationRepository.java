@@ -7,5 +7,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 public interface ReservationRepository extends JpaRepository<Reservation, Integer> {
 
+    long countByStatut(Boolean statut);
 
 }

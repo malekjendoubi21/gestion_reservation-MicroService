@@ -31,7 +31,9 @@ public class GestionReservationApplication {
                         new Reservation(new Date(), new Date(), 101, true),
                         new Reservation(new Date(), new Date(), 102, false),
                         new Reservation(new Date(), new Date(), 103, true),
-                        new Reservation(new Date(), new Date(), 104, false)
+                        new Reservation(new Date(), new Date(), 104, false),
+                         new Reservation(new Date(), new Date(), 105, false)
+
                 ));
             }
 

@@ -41,4 +41,18 @@ public class ReservationService {
     public Optional<Reservation> getReservationById(int id) {
         return reservationRepository.findById(id);
     }
+    // Récupère le nombre total de réservations
+    public int getTotalReservations() {
+        return (int) reservationRepository.count(); // Compte toutes les réservations
+    }
+
+    // Récupère le nombre de réservations confirmées
+    public int getConfirmedReservations() {
+        return (int) reservationRepository.countByStatut(true); // Compte les réservations confirmées
+    }
+
+    // Récupère le nombre de réservations annulées
+    public int getCanceledReservations() {
+        return (int) reservationRepository.countByStatut(false); // Compte les réservations annulées
+    }
 }

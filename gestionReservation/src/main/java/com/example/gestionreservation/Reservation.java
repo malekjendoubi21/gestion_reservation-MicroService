@@ -71,4 +71,8 @@ public class Reservation implements Serializable {
     public void setStatut(Boolean statut) {
         this.statut = statut;
     }
+
+    public boolean isStatut() {
+        return statut;
+    }
 }
